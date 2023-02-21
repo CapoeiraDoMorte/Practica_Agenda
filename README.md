@@ -2,12 +2,24 @@
 Practica Agenda en Java para el modulo de Entornos De Desarrollo
 
 ## Indice
--- Parte Grafica  CapoeiraDoMorte (Cristian)
+-- Creación de interfaz grafica de agenda. (Capo)
 
--- Función para registrar datos personales TOYTriston (AdriánTristan)
+-- Creacion ventana para añadir contactos. (Capo)
 
--- Función para desplazarse entre contactos CapoeiraDoMorte (Cristian)
+-- Funcion para crear contactos. (Tristan)
 
--- Función para insertar y ver foto de los contactos TOYTriston (AdriánTristan)
+-- Creacion ventana para editar contactos. (Capo)
 
--- Función para borrar contactos  CapoeiraDoMorte (Cristian)
+-- Funcion para editar contactos. (Tristan)
+
+-- Funcion para borrar contactos. (Tristan)
+
+-- Funcion para mostrar contactos mediante lista. (Capo)
+
+-- Funcion para el scroll de la lista. (Capo)
+
+-- Cracion del main. (Tristan)
+
+-- Funcion warning al borrar contacto. (Tristan)
+
+-- Funcion warning al no rellenar todos los campos. (Capo)
