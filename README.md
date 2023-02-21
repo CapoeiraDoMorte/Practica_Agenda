@@ -4,22 +4,22 @@ Practica Agenda en Java para el modulo de Entornos De Desarrollo
 ## Indice
 -- Creación de interfaz grafica de agenda. (Capo)
 
--- Creacion ventana para añadir contactos. (Capo)
+-- Creación ventana para añadir contactos. (Capo)
 
--- Funcion para crear contactos. (Tristan)
+-- Función para crear contactos. (Tristan)
 
--- Creacion ventana para editar contactos. (Capo)
+-- Creación ventana para editar contactos. (Capo)
 
--- Funcion para editar contactos. (Tristan)
+-- Función para editar contactos. (Tristan)
 
--- Funcion para borrar contactos. (Tristan)
+-- Función para borrar contactos. (Tristan)
 
--- Funcion para mostrar contactos mediante lista. (Capo)
+-- Función para mostrar contactos mediante lista. (Capo)
 
--- Funcion para el scroll de la lista. (Capo)
+-- Función para el scroll de la lista. (Capo)
 
--- Cracion del main. (Tristan)
+-- Creación del main. (Tristan)
 
--- Funcion warning al borrar contacto. (Tristan)
+-- Función warning al borrar contacto. (Tristan)
 
--- Funcion warning al no rellenar todos los campos. (Capo)
+-- Función warning al no rellenar todos los campos. (Capo)
