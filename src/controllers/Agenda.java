@@ -50,4 +50,21 @@ public class Agenda extends JFrame {
                 System.exit(0);
             }
         });
+
+        private void createContactsJList() {
+            model = new DefaultListModel<>();
+            model.addElement(new Contact("John Smith", "555-1234", "jsmith@email.com"));
+            model.addElement(new Contact("Jane Doe", "555-5678", "jdoe@email.com"));
+            model.addElement(new Contact("Bob Johnson", "555-2468", "bjohnson@email.com"));
+
+            contactList = new JList<>(model);
+            contactList.setCellRenderer(new ContactRenderer());
+        }
+
+        private void createAddButton() {
+            addButton = new JButton("Add");
+            addButton.addActionListener(e -> {
+                new AddContactDialog(Agenda.this, model).setVisible(true);
+            });
+        }
     }
