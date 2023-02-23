@@ -67,4 +67,23 @@ public class Agenda extends JFrame {
                 new AddContactDialog(Agenda.this, model).setVisible(true);
             });
         }
+        private void createEditButton() {
+            addButton = new JButton("Edit");
+            addButton.addActionListener(e -> {
+                String name = nameField.getText();
+                String telephone = telephoneField.getText();
+                String email = emailField.getText();
+
+                if (name.trim().isEmpty() || telephone.trim().isEmpty() || email.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "All fields are required.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                Contact newContact = new Contact(name, telephone, email);
+                int index = model.indexOf(contact);
+                model.removeElement(contact);
+                model.insertElementAt(newContact, index);
+                dispose();
+            });
+        }
     }
