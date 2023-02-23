@@ -102,4 +102,50 @@ public class Agenda extends JFrame {
                 }
             });
         }
+        private void createInfoPanel() {
+            infoPanel = new JPanel(new GridBagLayout());
+            GridBagConstraints c = new GridBagConstraints();
+            c.anchor = GridBagConstraints.NORTHWEST;
+            c.insets = new Insets(5, 5, 5, 5);
+
+            nameLabel = new JLabel("Name: ");
+            c.gridx = 0;
+            c.gridy = 0;
+            infoPanel.add(nameLabel, c);
+            nameValueLabel = new JLabel();
+            c.gridx = 1;
+            c.gridy = 0;
+            infoPanel.add(nameValueLabel, c);
+
+            phoneLabel = new JLabel("Phone: ");
+            c.gridx = 0;
+            c.gridy = 1;
+            infoPanel.add(phoneLabel, c);
+            phoneValueLabel = new JLabel();
+            c.gridx = 1;
+            c.gridy = 1;
+            infoPanel.add(phoneValueLabel, c);
+
+            emailLabel = new JLabel("Email: ");
+            c.gridx = 0;
+            c.gridy = 2;
+            infoPanel.add(emailLabel, c);
+            emailValueLabel = new JLabel();
+            c.gridx = 1;
+            c.gridy = 2;
+            infoPanel.add(emailValueLabel, c);
+
+            contactList.addListSelectionListener(e -> {
+                Contact selectedContact = contactList.getSelectedValue();
+                if (selectedContact != null) {
+                    nameValueLabel.setText(selectedContact.getName());
+                    phoneValueLabel.setText(selectedContact.getPhoneNumber());
+                    emailValueLabel.setText(selectedContact.getEmail());
+                } else {
+                    nameValueLabel.setText("");
+                    phoneValueLabel.setText("");
+                    emailValueLabel.setText("");
+                }
+            });
+        }
     }
