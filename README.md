@@ -10,11 +10,11 @@ Practica Agenda en Java para el modulo de Entornos De Desarrollo
 
 -- Creación ventana para editar contactos. (Capo)
 
--- Función para editar contactos. (Tristan)
+-- Función para editar contactos. (Capo)
 
 -- Función para borrar contactos. (Tristan)
 
--- Función para mostrar contactos mediante lista. (Capo)
+-- Función para mostrar contactos mediante lista. (Tristan)
 
 -- Función para el scroll de la lista. (Capo)
 
@@ -23,3 +23,5 @@ Practica Agenda en Java para el modulo de Entornos De Desarrollo
 -- Función warning al borrar contacto. (Tristan)
 
 -- Función warning al no rellenar todos los campos. (Capo)
+
+-- Creación de la Memoria del Proyecto (Capo & Tristan)
