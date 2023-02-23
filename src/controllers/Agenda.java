@@ -86,4 +86,20 @@ public class Agenda extends JFrame {
                 dispose();
             });
         }
+        private void createRemoveButton() {
+            removeButton = new JButton("Remove");
+            removeButton.addActionListener(e -> {
+                if (contactList.getSelectedValue() == null)
+                    return;
+
+                int option = JOptionPane.showConfirmDialog(Agenda.this,
+                        "Are you sure you want to delete this contact?",
+                        "Confirmation",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.WARNING_MESSAGE);
+                if (option == JOptionPane.OK_OPTION) {
+                    model.removeElement(contactList.getSelectedValue());
+                }
+            });
+        }
     }
