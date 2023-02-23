@@ -22,6 +22,8 @@ Practica Agenda en Java para el modulo de Entornos De Desarrollo
 
 -- Función warning al borrar contacto. (Tristan)
 
--- Función warning al no rellenar todos los campos. (Capo)
+-- Función warning al no rellenar todos los campos. (Tristan)
 
--- Creación de la Memoria del Proyecto (Capo & Tristan)
+-- Debug, solucion de errores. (Capo)
+
+-- Creación de la Memoria del Proyecto. (Capo & Tristan)
