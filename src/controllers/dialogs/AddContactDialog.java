@@ -72,3 +72,51 @@ public class AddContactDialog extends JDialog {
         constraints.fill = GridBagConstraints.HORIZONTAL;
         add(emailField, constraints);
     }
+    private void createAddButton() {
+        addButton = new JButton("Add");
+        addButton.addActionListener(e -> {
+            String name = nameField.getText();
+            String telephone = telephoneField.getText();
+            String email = emailField.getText();
+
+            if (name.trim().isEmpty() || telephone.trim().isEmpty() || email.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "All fields are required.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            model.addElement(new Contact(name, telephone, email));
+            dispose();
+        });
+    }
+
+    private void createCancelButton() {
+        cancelButton = new JButton("Cancel");
+        cancelButton.addActionListener(e -> {
+            dispose();
+        });
+    }
+
+    private void createButtonPanel(GridBagConstraints constraints) {
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(addButton);
+        buttonPanel.add(cancelButton);
+
+        constraints.gridx = 1;
+        constraints.gridy = 3;
+        constraints.fill = GridBagConstraints.NONE;
+        add(buttonPanel, constraints);
+    }
+
+    public String getName() {
+        return nameField.getText();
+    }
+
+    public String getTelephone() {
+        return telephoneField.getText();
+    }
+
+    public String getEmail() {
+        return emailField.getText();
+    }
+}
+
