@@ -66,6 +66,9 @@ public class Agenda extends JFrame {
 
     private void createAddButton() {
         addButton = new JButton("Add");
+        addButton.setForeground(Color.BLACK);
+        addButton.setFont (new Font("arial",Font.BOLD,15));
+        addButton.setBackground(Color.LIGHT_GRAY);
         addButton.addActionListener(e -> {
             new AddContactDialog(Agenda.this, model).setVisible(true);
         });
