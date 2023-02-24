@@ -50,102 +50,103 @@ public class Agenda extends JFrame {
                 System.exit(0);
             }
         });
-
-        private void createContactsJList() {
-            model = new DefaultListModel<>();
-            model.addElement(new Contact("John Smith", "555-1234", "jsmith@email.com"));
-            model.addElement(new Contact("Jane Doe", "555-5678", "jdoe@email.com"));
-            model.addElement(new Contact("Bob Johnson", "555-2468", "bjohnson@email.com"));
-
-            contactList = new JList<>(model);
-            contactList.setCellRenderer(new ContactRenderer());
-        }
-
-        private void createAddButton() {
-            addButton = new JButton("Add");
-            addButton.addActionListener(e -> {
-                new AddContactDialog(Agenda.this, model).setVisible(true);
-            });
-        }
-        private void createEditButton() {
-            addButton = new JButton("Edit");
-            addButton.addActionListener(e -> {
-                String name = nameField.getText();
-                String telephone = telephoneField.getText();
-                String email = emailField.getText();
-
-                if (name.trim().isEmpty() || telephone.trim().isEmpty() || email.trim().isEmpty()) {
-                    JOptionPane.showMessageDialog(this, "All fields are required.", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-
-                Contact newContact = new Contact(name, telephone, email);
-                int index = model.indexOf(contact);
-                model.removeElement(contact);
-                model.insertElementAt(newContact, index);
-                dispose();
-            });
-        }
-        private void createRemoveButton() {
-            removeButton = new JButton("Remove");
-            removeButton.addActionListener(e -> {
-                if (contactList.getSelectedValue() == null)
-                    return;
-
-                int option = JOptionPane.showConfirmDialog(Agenda.this,
-                        "Are you sure you want to delete this contact?",
-                        "Confirmation",
-                        JOptionPane.YES_NO_OPTION,
-                        JOptionPane.WARNING_MESSAGE);
-                if (option == JOptionPane.OK_OPTION) {
-                    model.removeElement(contactList.getSelectedValue());
-                }
-            });
-        }
-        private void createInfoPanel() {
-            infoPanel = new JPanel(new GridBagLayout());
-            GridBagConstraints c = new GridBagConstraints();
-            c.anchor = GridBagConstraints.NORTHWEST;
-            c.insets = new Insets(5, 5, 5, 5);
-
-            nameLabel = new JLabel("Name: ");
-            c.gridx = 0;
-            c.gridy = 0;
-            infoPanel.add(nameLabel, c);
-            nameValueLabel = new JLabel();
-            c.gridx = 1;
-            c.gridy = 0;
-            infoPanel.add(nameValueLabel, c);
-
-            phoneLabel = new JLabel("Phone: ");
-            c.gridx = 0;
-            c.gridy = 1;
-            infoPanel.add(phoneLabel, c);
-            phoneValueLabel = new JLabel();
-            c.gridx = 1;
-            c.gridy = 1;
-            infoPanel.add(phoneValueLabel, c);
-
-            emailLabel = new JLabel("Email: ");
-            c.gridx = 0;
-            c.gridy = 2;
-            infoPanel.add(emailLabel, c);
-            emailValueLabel = new JLabel();
-            c.gridx = 1;
-            c.gridy = 2;
-            infoPanel.add(emailValueLabel, c);
-
-            contactList.addListSelectionListener(e -> {
-                Contact selectedContact = contactList.getSelectedValue();
-                if (selectedContact != null) {
-                    nameValueLabel.setText(selectedContact.getName());
-                    phoneValueLabel.setText(selectedContact.getPhoneNumber());
-                    emailValueLabel.setText(selectedContact.getEmail());
-                } else {
-                    nameValueLabel.setText("");
-                    phoneValueLabel.setText("");
-                    emailValueLabel.setText("");
-                }
-            });
-        }
     }
+
+    private void createContactsJList() {
+        model = new DefaultListModel<>();
+        model.addElement(new Contact("John Smith", "555-1234", "jsmith@email.com"));
+        model.addElement(new Contact("Jane Doe", "555-5678", "jdoe@email.com"));
+        model.addElement(new Contact("Bob Johnson", "555-2468", "bjohnson@email.com"));
+
+        contactList = new JList<>(model);
+        contactList.setCellRenderer(new ContactRenderer());
+    }
+
+    private void createAddButton() {
+        addButton = new JButton("Add");
+        addButton.addActionListener(e -> {
+            new AddContactDialog(Agenda.this, model).setVisible(true);
+        });
+    }
+
+    private void createEditButton() {
+        editButton = new JButton("Edit");
+        editButton.addActionListener(e -> {
+            if (contactList.getSelectedValue() == null)
+                return;
+
+            new EditContactDialog(Agenda.this, model, contactList.getSelectedValue()).setVisible(true);
+        });
+    }
+
+    private void createRemoveButton() {
+        removeButton = new JButton("Remove");
+        removeButton.addActionListener(e -> {
+            if (contactList.getSelectedValue() == null)
+                return;
+
+            int option = JOptionPane.showConfirmDialog(Agenda.this,
+                    "Are you sure you want to delete this contact?",
+                    "Confirmation",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE);
+            if (option == JOptionPane.OK_OPTION) {
+                model.removeElement(contactList.getSelectedValue());
+            }
+        });
+    }
+
+    private void createInfoPanel() {
+        infoPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        c.anchor = GridBagConstraints.NORTHWEST;
+        c.insets = new Insets(5, 5, 5, 5);
+
+        nameLabel = new JLabel("Name: ");
+        c.gridx = 0;
+        c.gridy = 0;
+        infoPanel.add(nameLabel, c);
+        nameValueLabel = new JLabel();
+        c.gridx = 1;
+        c.gridy = 0;
+        infoPanel.add(nameValueLabel, c);
+
+        phoneLabel = new JLabel("Phone: ");
+        c.gridx = 0;
+        c.gridy = 1;
+        infoPanel.add(phoneLabel, c);
+        phoneValueLabel = new JLabel();
+        c.gridx = 1;
+        c.gridy = 1;
+        infoPanel.add(phoneValueLabel, c);
+
+        emailLabel = new JLabel("Email: ");
+        c.gridx = 0;
+        c.gridy = 2;
+        infoPanel.add(emailLabel, c);
+        emailValueLabel = new JLabel();
+        c.gridx = 1;
+        c.gridy = 2;
+        infoPanel.add(emailValueLabel, c);
+
+        contactList.addListSelectionListener(e -> {
+            Contact selectedContact = contactList.getSelectedValue();
+            if (selectedContact != null) {
+                nameValueLabel.setText(selectedContact.getName());
+                phoneValueLabel.setText(selectedContact.getPhoneNumber());
+                emailValueLabel.setText(selectedContact.getEmail());
+            } else {
+                nameValueLabel.setText("");
+                phoneValueLabel.setText("");
+                emailValueLabel.setText("");
+            }
+        });
+    }
+
+    public static void main(String[] args) {
+        Agenda agenda = new Agenda();
+        agenda.setSize(800, 600);
+        agenda.setResizable(false);
+        agenda.setVisible(true);
+    }
+}
