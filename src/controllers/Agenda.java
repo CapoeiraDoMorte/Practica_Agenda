@@ -5,6 +5,7 @@ import controllers.dialogs.EditContactDialog;
 import models.Contact;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -34,6 +35,7 @@ public class Agenda extends JFrame {
         createInfoPanel();
 
         JPanel mainPanel = new JPanel(new BorderLayout());
+        mainPanel.setBorder(new EmptyBorder(15,15,15,0));
         mainPanel.add(new JScrollPane(contactList), BorderLayout.CENTER);
         JPanel buttonPanel = new JPanel(new GridLayout(3, 1, 0, 5));
         buttonPanel.add(addButton);
