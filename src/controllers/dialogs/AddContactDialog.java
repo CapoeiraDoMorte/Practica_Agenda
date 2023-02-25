@@ -74,6 +74,9 @@ public class AddContactDialog extends JDialog {
     }
     private void createAddButton() {
         addButton = new JButton("Add");
+        addButton.setForeground(Color.BLACK);
+        addButton.setFont (new Font("arial",Font.BOLD,15));
+        addButton.setBackground(Color.LIGHT_GRAY);
         addButton.addActionListener(e -> {
             String name = nameField.getText();
             String telephone = telephoneField.getText();
@@ -91,6 +94,9 @@ public class AddContactDialog extends JDialog {
 
     private void createCancelButton() {
         cancelButton = new JButton("Cancel");
+        cancelButton.setForeground(Color.BLACK);
+        cancelButton.setFont (new Font("arial",Font.BOLD,15));
+        cancelButton.setBackground(Color.LIGHT_GRAY);
         cancelButton.addActionListener(e -> {
             dispose();
         });

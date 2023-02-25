@@ -56,11 +56,13 @@ public class Agenda extends JFrame {
 
     private void createContactsJList() {
         model = new DefaultListModel<>();
-        model.addElement(new Contact("John Smith", "555-1234", "jsmith@email.com"));
-        model.addElement(new Contact("Jane Doe", "555-5678", "jdoe@email.com"));
+        model.addElement(new Contact("Jaime Altozano", "525-1234", "jaltoza@email.com"));
+        model.addElement(new Contact("Jaime Riquelme", "515-5648", "jriquelme@email.com"));
         model.addElement(new Contact("Bob Johnson", "555-2468", "bjohnson@email.com"));
 
         contactList = new JList<>(model);
+        contactList.setFixedCellWidth(200);
+        contactList.setFixedCellHeight(100);
         contactList.setCellRenderer(new ContactRenderer());
     }
 
@@ -69,6 +71,8 @@ public class Agenda extends JFrame {
         addButton.setForeground(Color.BLACK);
         addButton.setFont (new Font("arial",Font.BOLD,15));
         addButton.setBackground(Color.LIGHT_GRAY);
+        ImageIcon edit = new ImageIcon("src/controllers/Pictures/anadir.png");
+        addButton.setIcon(new ImageIcon(edit.getImage().getScaledInstance(25,25, Image.SCALE_SMOOTH)));
         addButton.addActionListener(e -> {
             new AddContactDialog(Agenda.this, model).setVisible(true);
         });
@@ -76,6 +80,11 @@ public class Agenda extends JFrame {
 
     private void createEditButton() {
         editButton = new JButton("Edit");
+        editButton.setForeground(Color.BLACK);
+        editButton.setFont (new Font("arial",Font.BOLD,15));
+        editButton.setBackground(Color.LIGHT_GRAY);
+        ImageIcon edit = new ImageIcon("src/controllers/Pictures/edit.png");
+        editButton.setIcon(new ImageIcon(edit.getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH)));
         editButton.addActionListener(e -> {
             if (contactList.getSelectedValue() == null)
                 return;
@@ -86,6 +95,11 @@ public class Agenda extends JFrame {
 
     private void createRemoveButton() {
         removeButton = new JButton("Remove");
+        removeButton.setForeground(Color.BLACK);
+        removeButton.setFont (new Font("arial",Font.BOLD,15));
+        removeButton.setBackground(Color.LIGHT_GRAY);
+        ImageIcon edit = new ImageIcon("src/controllers/Pictures/borrar.png");
+        removeButton.setIcon(new ImageIcon(edit.getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
         removeButton.addActionListener(e -> {
             if (contactList.getSelectedValue() == null)
                 return;
